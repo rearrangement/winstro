@@ -1,4 +1,4 @@
-import chalk, { colorNames } from "chalk"
+import chalk from "chalk"
 
 function colors() {
     console.log("Use dot notation to use the text colors");
@@ -15,6 +15,9 @@ colors.green = function(text: string) {
 }
 colors.yellow = function(text: string) {
     console.log(chalk.yellow(text));
+}
+colors.purple = function(text: string) {
+    console.log(chalk.magenta(text));
 }
 
 colors.brightBlue = function(text: string) {
