@@ -2,12 +2,7 @@ import inquirer from 'inquirer';
 import colors from '../colors.ts';
 import install_package from '../install/install_package.ts';
 
-// also stupid, found bugs tho, this fixed them
-async function hook() {
-    first_step();
-}
-
-async function first_step() {
+async function cli() {
     const answers = await inquirer.prompt([
         {
             type: 'list',
@@ -30,4 +25,4 @@ async function first_step() {
     }
 }
 
-export default hook;
+export default cli;

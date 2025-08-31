@@ -1,2 +1,2 @@
-const winget_requirements: string[] = ['react', 'vite', 'astro'];
+const winget_requirements: string[] = ['TranslucentTB'];
 export default winget_requirements;

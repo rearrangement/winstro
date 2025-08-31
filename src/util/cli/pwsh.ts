@@ -4,7 +4,7 @@ import isAdmin from 'is-admin';
 
 function pwsh() {
     // this is SUPER suspicious, no better way to do it, atleast from my knowledge :(
-    const command: string = 'Set-ExecutionPolicy -ExecutionPolicy -NonInteractive RemoteSigned -Scope CurrentUser';
+    const command: string = 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser';
     exec(`${command} > processes.log`, { encoding: 'utf-8' }, async (error) => {
         if (error) {
             colors.red("[✗] [wincdt::pwsh]: error setting the execution policy for powershell")
