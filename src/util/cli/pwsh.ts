@@ -7,11 +7,11 @@ function pwsh() {
     const command: string = 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser';
     exec(`${command} > processes.log`, { encoding: 'utf-8' }, async (error) => {
         if (error) {
-            colors.red("[✗] [wincdt::pwsh]: error setting the execution policy for powershell")
+            colors.red("[✗] [winstro::pwsh]: error setting the execution policy for powershell")
             if (await isAdmin()) {
-                colors.yellow("[⚠ ] [wincdt::pwsh]: this is not an usual error..");                
+                colors.yellow("[⚠ ] [winstro::pwsh]: this is not an usual error..");                
             } else {
-                colors.red("[✗] [wincdt::pwsh]: this error is likely because you aren't running with administrator");
+                colors.red("[✗] [winstro::pwsh]: this error is likely because you aren't running with administrator");
             }
         }
     });

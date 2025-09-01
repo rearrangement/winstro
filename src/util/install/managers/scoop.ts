@@ -8,7 +8,7 @@ function scoop() {
     const command: string = 'Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression';
     exec(`${command} > processes.log`, { encoding: 'utf-8' }, (error) => {
         if (error) {
-            colors.red("[✗] [wincdt::scoop]: error installing scoop package manager")
+            colors.red("[✗] [winstro::scoop]: error installing scoop package manager")
         }
     });
 }

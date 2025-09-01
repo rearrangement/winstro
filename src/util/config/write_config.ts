@@ -11,7 +11,7 @@ function write_config() {
         output: process.stdout
     });
 
-    rl.question('Enter package names separated by commas, example: (Creator.Package1,Creator.Package2): ', (answer) => {
+    rl.question('[winstro::write_config]: Enter package names separated by commas, example: (Creator.Package1,Creator.Package2): ', (answer) => {
         const packages = answer.split(',').map(pkg => pkg.trim()).filter(pkg => pkg.length > 0);
         const configContent = `const winget_requirements: string[] = [${packages.map(pkg => `'${pkg}'`).join(', ')}];\nexport default winget_requirements;\n`;
         const configDir = path.resolve(__dirname, '../../../config');
@@ -19,7 +19,7 @@ function write_config() {
             fs.mkdirSync(configDir, { recursive: true });
         }
         fs.writeFileSync(path.join(configDir, 'requirements.winget.ts'), configContent, 'utf8');
-        console.log(colors.green('[wincdt::write_config]: requirements.winget.ts has been created successfully.'));
+        console.log(colors.green('[winstro::write_config]: requirements.winget.ts has been created successfully.'));
         rl.close();
     });
 

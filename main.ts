@@ -25,28 +25,28 @@ const { values, positionals } = parseArgs({
 
 if (values.help) {
     console.log(`
-wincdt - WINdows Custom Dependency Tool
-Usage: wincdt [options]
+winstro - Windows made as a distro
+Usage: winstro [options]
 Options:
   --help          Show this help message
   --headless      Run in headless mode (no interactive prompts)
-  --qwrite         (MANUALLY) Generate a config file based on currently installed packages
+  --qwrite        (MANUALLY) Generate a config file based on currently installed packages
 Examples:
-  wincdt --headless
-  wincdt --write
+  winstro --headless
+  winstro --write
 `);
     process.exit(0);
 }
 
 if (values.qwrite) {
     console.log(write_logo);
-    colors.green('[✓] [wincdt::main]: write mode detected, prompting user to generate config file');
+    colors.green('[✓] [winstro::main]: write mode detected, prompting user to generate config file');
     write_config();
 }
 
 if (values.headless) {
     console.log(headless_logo);
-    colors.green('[✓] [wincdt::main]: headless mode detected, installing without prompts');
+    colors.green('[✓] [winstro::main]: headless mode detected, installing without prompts');
     install_package();
 } else if (!values.qwrite) {
     main();
@@ -56,10 +56,10 @@ if (values.headless) {
 async function main() {
     console.log(logo);
     if (await isAdmin()) {
-        colors.green("[✗] [wincdt::main]: process already started as admin, skipping elevation warning")
+        colors.green("[✗] [winstro::main]: process already started as admin, skipping elevation warning")
         cli();
     } else {
-        colors.yellow("[⚠ ] [wincdt::main]:  process not running as admin, you might want to consider running it as admin to prevent issues with powershell signing.")
+        colors.yellow("[⚠ ] [winstro::main]:  process not running as admin, you might want to consider running it as admin to prevent issues with powershell signing.")
         cli();
     }
 }

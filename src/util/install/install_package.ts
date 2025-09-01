@@ -9,8 +9,8 @@ async function install_package() {
             await new Promise<void>((resolve, reject) => {
                 exec(`${command} > install.log`, { encoding: 'utf-8' }, (error) => {
                     if (error) {
-                        colors.red(`[wincdt::install_package]: error installing package: ${error}`);
-                        colors.red(`[wincdt::install_package]: see install.log for more details`);
+                        colors.red(`[winstro::install_package]: error installing package: ${error}`);
+                        colors.red(`[winstro::install_package]: see install.log for more details`);
                         reject(error);
                     } else {
                         resolve();
