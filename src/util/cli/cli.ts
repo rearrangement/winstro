@@ -1,6 +1,7 @@
 import inquirer from 'inquirer';
 import colors from '../colors.ts';
 import install_package from '../install/install_package.ts';
+import write_config from '../config/write_config.ts';
 
 async function cli() {
     const answers = await inquirer.prompt([
@@ -8,7 +9,7 @@ async function cli() {
             type: 'list',
             name: 'action',
             message: 'what would you like to do?',
-            choices: ['install', 'exit'],
+            choices: ['install', 'write', 'exit'],
         },
     ]);
 
@@ -16,6 +17,10 @@ async function cli() {
         case 'install':
             colors.green('[✓] reading current config && installing');
             install_package();
+            break;
+        case 'write':
+            colors.green('[✓] going to write mode!!');
+            write_config();
             break;
         case 'exit':
             colors.red('[✗] exiting...');

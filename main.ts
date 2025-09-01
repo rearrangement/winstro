@@ -15,7 +15,7 @@ const { values, positionals } = parseArgs({
     headless: {
       type: 'boolean',
     },
-    write: {
+    qwrite: {
       type: 'boolean',
     },
   },
@@ -30,7 +30,7 @@ Usage: wincdt [options]
 Options:
   --help          Show this help message
   --headless      Run in headless mode (no interactive prompts)
-  --write         (MANUALLY) Generate a config file based on currently installed packages
+  --qwrite         (MANUALLY) Generate a config file based on currently installed packages
 Examples:
   wincdt --headless
   wincdt --write
@@ -38,7 +38,7 @@ Examples:
     process.exit(0);
 }
 
-if (values.write) {
+if (values.qwrite) {
     console.log(write_logo);
     colors.green('[✓] [wincdt::main]: write mode detected, prompting user to generate config file');
     write_config();
@@ -48,7 +48,7 @@ if (values.headless) {
     console.log(headless_logo);
     colors.green('[✓] [wincdt::main]: headless mode detected, installing without prompts');
     install_package();
-} else if (!values.write) {
+} else if (!values.qwrite) {
     main();
 }
 
